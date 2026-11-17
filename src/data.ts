@@ -1,0 +1,16 @@
+export type Food = { id: number; name: string; description: string; price: number; oldPrice?: number; category: string; image: string; rating: number; time: string; tag?: string; calories: number; ingredients: string[] };
+export const categories = ['همه', 'غذای ایرانی', 'غذای سنتی', 'نوشیدنی', 'پیش‌غذا'];
+export const foods: Food[] = [
+  { id: 1, name: 'زرشک‌پلو با مرغ', description: 'زرشک‌پلوی زعفرانی با مرغ آرام‌پز، خلال پسته و بادام', price: ۱۸۵۰۰۰, oldPrice: ۲۱۰۰۰۰, category: 'غذای ایرانی', image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=900&auto=format&fit=crop&q=85', rating: 4.9, time: '۲۵ دقیقه', tag: 'پرفروش', calories: ۶۸۰, ingredients: ['برنج ایرانی', 'مرغ مزه‌دار شده', 'زرشک', 'زعفران'] },
+  { id: 2, name: 'چلو کباب کوبیده', description: 'دو سیخ کباب کوبیده تازه با برنج ایرانی و گوجه کبابی', price: ۲۴۵۰۰۰, category: 'غذای ایرانی', image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=900&auto=format&fit=crop&q=85', rating: 4.8, time: '۳۰ دقیقه', tag: 'محبوب', calories: ۷۹۰, ingredients: ['گوشت گوسفندی', 'برنج ایرانی', 'گوجه کبابی', 'کره'] },
+  { id: 3, name: 'قورمه‌سبزی', description: 'خورش جاافتاده با سبزی تازه، لوبیا قرمز و لیموعمانی', price: ۱۷۵۰۰۰, category: 'غذای سنتی', image: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=900&auto=format&fit=crop&q=85', rating: 4.7, time: '۲۰ دقیقه', calories: ۵۶۰, ingredients: ['سبزی قورمه', 'گوشت گوساله', 'لوبیا قرمز', 'لیموعمانی'] },
+  { id: 4, name: 'جوجه کباب زعفرانی', description: 'جوجه بدون استخوان با طعم زعفران و لیموی تازه', price: ۲۱۵۰۰۰, category: 'غذای ایرانی', image: 'https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=900&auto=format&fit=crop&q=85', rating: 4.8, time: '۲۵ دقیقه', calories: ۶۲۰, ingredients: ['سینه مرغ', 'زعفران', 'آبلیمو', 'فلفل دلمه‌ای'] },
+  { id: 5, name: 'کشک بادمجان', description: 'بادمجان کبابی با کشک، نعنا داغ و پیازداغ', price: ۹۵۰۰۰, category: 'پیش‌غذا', image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&auto=format&fit=crop&q=85', rating: 4.6, time: '۱۰ دقیقه', calories: ۳۲۰, ingredients: ['بادمجان', 'کشک', 'گردو', 'نعنا'] },
+  { id: 6, name: 'دوغ سنتی', description: 'دوغ خنک محلی با نعنا و گل‌محمدی', price: ۳۵۰۰۰, category: 'نوشیدنی', image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=900&auto=format&fit=crop&q=85', rating: 4.7, time: '۲ دقیقه', calories: ۹۰, ingredients: ['ماست', 'آب', 'نعنا', 'نمک'] }
+];
+export type Order = { id: string; date: string; items: { food: Food; quantity: number }[]; total: number; status: 'در حال آماده‌سازی' | 'تحویل داده شده'; address: string };
+export const sampleOrders: Order[] = [
+  { id: 'KH-1405-0248', date: '۱۴۰۵/۰۸/۲۴ · ۱۲:۳۵', items: [{ food: foods[0], quantity: 1 }, { food: foods[5], quantity: 1 }], total: ۲۲۰۰۰۰, status: 'تحویل داده شده', address: 'ساختمان مرکزی · طبقه دوم' },
+  { id: 'KH-1405-0231', date: '۱۴۰۵/۰۸/۲۲ · ۱۲:۱۸', items: [{ food: foods[2], quantity: 1 }], total: ۱۷۵۰۰۰, status: 'تحویل داده شده', address: 'ساختمان مرکزی · طبقه دوم' }
+];
+export const money = (value: number) => new Intl.NumberFormat('fa-IR').format(value) + ' تومان';
